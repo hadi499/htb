@@ -1,0 +1,77 @@
+# Nmap 7.80 scan initiated Fri Jun 30 19:26:53 2023 as: nmap -sC -sV -oN nmap/escape.nmap 10.10.11.202
+Nmap scan report for 10.10.11.202
+Host is up (0.35s latency).
+Not shown: 988 filtered ports
+PORT     STATE SERVICE       VERSION
+53/tcp   open  domain?
+| fingerprint-strings: 
+|   DNSVersionBindReqTCP: 
+|     version
+|_    bind
+88/tcp   open  kerberos-sec  Microsoft Windows Kerberos (server time: 2023-06-30 20:27:29Z)
+135/tcp  open  msrpc         Microsoft Windows RPC
+139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn
+389/tcp  open  ldap          Microsoft Windows Active Directory LDAP (Domain: sequel.htb0., Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=dc.sequel.htb
+| Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1::<unsupported>, DNS:dc.sequel.htb
+| Not valid before: 2022-11-18T21:20:35
+|_Not valid after:  2023-11-18T21:20:35
+|_ssl-date: 2023-06-30T20:30:35+00:00; +7h59m57s from scanner time.
+445/tcp  open  microsoft-ds?
+464/tcp  open  kpasswd5?
+593/tcp  open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+636/tcp  open  ssl/ldap      Microsoft Windows Active Directory LDAP (Domain: sequel.htb0., Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=dc.sequel.htb
+| Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1::<unsupported>, DNS:dc.sequel.htb
+| Not valid before: 2022-11-18T21:20:35
+|_Not valid after:  2023-11-18T21:20:35
+|_ssl-date: 2023-06-30T20:30:36+00:00; +7h59m57s from scanner time.
+1433/tcp open  ms-sql-s      Microsoft SQL Server  15.00.2000.00
+| ms-sql-ntlm-info: 
+|   Target_Name: sequel
+|   NetBIOS_Domain_Name: sequel
+|   NetBIOS_Computer_Name: DC
+|   DNS_Domain_Name: sequel.htb
+|   DNS_Computer_Name: dc.sequel.htb
+|   DNS_Tree_Name: sequel.htb
+|_  Product_Version: 10.0.17763
+| ssl-cert: Subject: commonName=SSL_Self_Signed_Fallback
+| Not valid before: 2023-06-30T12:26:35
+|_Not valid after:  2053-06-30T12:26:35
+|_ssl-date: 2023-06-30T20:30:35+00:00; +7h59m57s from scanner time.
+3268/tcp open  ldap          Microsoft Windows Active Directory LDAP (Domain: sequel.htb0., Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=dc.sequel.htb
+| Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1::<unsupported>, DNS:dc.sequel.htb
+| Not valid before: 2022-11-18T21:20:35
+|_Not valid after:  2023-11-18T21:20:35
+|_ssl-date: 2023-06-30T20:30:35+00:00; +7h59m57s from scanner time.
+3269/tcp open  ssl/ldap      Microsoft Windows Active Directory LDAP (Domain: sequel.htb0., Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=dc.sequel.htb
+| Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1::<unsupported>, DNS:dc.sequel.htb
+| Not valid before: 2022-11-18T21:20:35
+|_Not valid after:  2023-11-18T21:20:35
+|_ssl-date: 2023-06-30T20:30:36+00:00; +7h59m57s from scanner time.
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port53-TCP:V=7.80%I=7%D=6/30%Time=649ECA37%P=x86_64-pc-linux-gnu%r(DNSV
+SF:ersionBindReqTCP,20,"\0\x1e\0\x06\x81\x04\0\x01\0\0\0\0\0\0\x07version\
+SF:x04bind\0\0\x10\0\x03");
+Service Info: Host: DC; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: mean: 7h59m56s, deviation: 0s, median: 7h59m56s
+| ms-sql-info: 
+|   10.10.11.202:1433: 
+|     Version: 
+|       name: Microsoft SQL Server 
+|       number: 15.00.2000.00
+|       Product: Microsoft SQL Server 
+|_    TCP port: 1433
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled and required
+| smb2-time: 
+|   date: 2023-06-30T20:29:57
+|_  start_date: N/A
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Jun 30 19:30:42 2023 -- 1 IP address (1 host up) scanned in 229.21 seconds

